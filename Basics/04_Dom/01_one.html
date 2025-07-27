@@ -1,0 +1,70 @@
+<!-- document.getElementById('title') 
+    document.getELementById('title').className
+    document.getELementById('title').getAttribute('id')
+    document.getELementById('title').getAttribute('class')
+    document.getElementById('title').setAttribute('class','test') //Overwrites
+    title.style.backgroundColor = 'green'-->
+<!-- title.innerHTML -->
+<!-- title.textContent -->
+<!-- title.innerText -->
+<!-- document.getElementByClassName('heading') //return HTML Collection-->
+
+<!-- querySelectors -->
+
+<!-- document.querySelector('h1')
+<h1 id=​"title" class=​"heading">​…​</h1>​ -->
+
+<!-- document.querySelector('#title') -->
+
+<!-- document.querySelector('ul') 
+    const myul = document.querySelector('ul') 
+    myul 
+    myul.querySelector('li')
+    const turnGreen = myul.querySelector('li')
+    turnGreen
+    turnGreen.style.backgroundColor = 'green'
+    turnGreen.style.padding = '10px'
+    turnGreen.innerText = 'five'
+-->
+    <!-- document.querySelectorAll('li')  //returns NodeList 
+    const TempList =document.querySelectorAll('li')
+    TempList
+    TempList[0].style.color = 'green'
+    TempList.forEach( function (l) { 
+    l.style.backgroundColor = 'green'})
+    const arrayItems = [...TempList]   //Converts Nodelist to array -->
+
+    <!-- HTML Collection -->
+    <!-- const list = document.getElementsByClassName('list-item') //returns html collection
+    Array.from(list) //converts HTML COllection to array
+    myArray.forEach(function (li) {
+    li.style.color = 'blue' })
+    -->
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+<!-- ul>li*3 -->
+        <ul>
+            <li class = "list-item">one</li>
+            <li class = "list-item">two</li>
+            <li class = "list-item">three</li>
+            <li class = "list-item">four</li>
+        </ul>
+    </div>
+</body> 
+</html>
+
+<!-- Database query -> values -> store in array -> display in/using various ways -->
