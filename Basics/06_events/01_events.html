@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141; color:#ffff">
+    <h2>Amazing images</h2>
+    <div>
+    <ul id="images">
+        <li><img width = "300px" id = "giyu" src="https://wallpapers.com/images/hd/giyu-tomioka-pictures-ihdz9f349x79xzgd.jpg" alt="giyu_image" onclick="alert('Giyu Tomioka')"></li>
+        <li><img width = "400px" id = "daisuke" src="https://mageinabarrel.com/wp-content/uploads/2020/04/millionaire-detective-1-11.jpg" alt="daisuke_image"></li>
+        <li><img width = "300px" id = "dazai" src="https://i.scdn.co/image/ab6761610000e5eb4d218856ab5e3f805c25682e" alt="dazai_image"></li>
+        <li><img width = "500px" id = "tengen" src="https://poggers.com/cdn/shop/articles/08ff6c8d1f0719c65f752fdb2d2f45d4_1818x1023_crop_center.webp?v=1708120934" alt="tengen_image"></li>
+        <li><img width = "300px" id = "toji" src="https://posterwa.com/cdn/shop/files/JJK61_9d2c1c08-0b63-45ab-be2f-d1da3caf9f1f.jpg?v=1705308678" alt="toji_image"></li>
+        <li ><a style="color: aliceblue;" href = "https://www.google.com/" id = "google">Google</a></li>
+    </ul>
+    </div>
+    <script>
+        document.getElementById('daisuke').onclick=function(){
+            alert("Daisuke Kanbe")
+        }
+        //this should'nt be used as onclick can give some issues and gives less features
+
+        //Event Listeners are capable of listeniong to many events ie keyboard,mouse or drag and drop events
+        //Event Listeners have three parameters
+        //Event Listeners give propogation feature: 1.Event Capturing(true) 2.Event Bubbling(false)
+        
+        //document.getElementById('dazai').addEventListener('click', function(){
+          //  alert('Dazai Osamu')
+        //}, false)
+        
+        document.getElementById('dazai').addEventListener('click', function(e){
+            console.log(e)
+        }, false) //Gives Pointer object with methods
+        //false is default
+
+        //Event Propagation(inside to outside) : Event Bubbling (down to up)
+        //document.getElementById('images').addEventListener('click', function(e){
+        //    console.log("clicked inside the ul")
+        //}, false)
+
+        //document.getElementById('tengen').addEventListener('click', function(e){
+          //  console.log("tengen sama")
+        //}, false)
+
+        //Event Propagation(inside to outside) : Event Capturing (up to down)
+        //document.getElementById('images').addEventListener('click', function(e){
+            //console.log("clicked inside the ul")
+        //}, true)
+
+        //document.getElementById('tengen').addEventListener('click', function(e){
+            //console.log("tengen sama")
+        //}, true)
+
+        document.getElementById('images').addEventListener('click', function(e){
+            console.log("clicked inside the ul")
+        }, false)
+
+        //document.getElementById('toji').addEventListener('click', function(e){
+           // console.log("toji sama")
+           // e.stopPropagation()
+        //}, false)
+
+        document.getElementById('google').addEventListener('click', function(e){
+            console.log("google clicked")
+            e.preventDefault()    
+        }, false)
+
+        document.querySelector('#images').addEventListener('click',function(e){
+           // console.log(e.target.parentNode)
+            console.log(e.target.tagName)
+            if(e.target.tagName === 'IMG'){ //check for event spillover
+                console.log(e.target.id)
+            let removeImage = e.target.parentNode
+            removeImage.remove() 
+            }
+        })
+    </script>
+<!--        or     removeImage.parentNode.removeChild(removeImage) -->
+
+</body>
+</html>
+<!-- attachEvent, JQuery -->
+<!-- type,defaultprevented,timeStamp,target,toElement, srcElement,currentTarget, clientX, clientY, screenX, screenY, altkey,  ctrlkey ,keycode, shiftkey -->
+<!-- events are sequential -->
+<!-- for giyu image avoid onclick() as it can give issues -->
