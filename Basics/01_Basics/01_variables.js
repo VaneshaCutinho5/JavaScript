@@ -12,9 +12,14 @@ console.log(accountId);
 
 console.table([accountEmail,accountPassword,accountCity,accountState]);
 
+// https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript
+// var obeys function scope but not block scope
+
 // Don't use var as there were problems with this approach : issue in block scope and functional scope
 // In ES6, let and const were introduced to tackle this problem of js scope.
 //Clarify use of 'let' and 'const' over 'var' for block-scoped variables
+
+// Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 
 /* Why Use let, const, and var?
 var: Function-scoped, can lead to hoisting issues and bugs in modern JS code. Best avoided in most cases.

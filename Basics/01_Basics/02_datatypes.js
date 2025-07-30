@@ -1,6 +1,8 @@
 //alert(3+3) // we are using nodejs and not browser
 
 //Readability is important
+//Type conversion(Explicit) -> ParseInt(), ParseFloat(), toString
+//Type coercion(Implicit/Automatic)
 
 let name = "vanesha"
 let age = 18
@@ -68,6 +70,8 @@ console.log("02" > 1);
 
 //console.log(89 == "89");
 
+const num = 89
+console.log(typeof num);
 
 
 

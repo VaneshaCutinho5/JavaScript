@@ -1,5 +1,5 @@
 // https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Object_basics
-
+// https://javascript.info/object
 //Object creation in 2 ways-> literals or constructor(singleton)
 
 //Constructor //always singleton
@@ -136,19 +136,19 @@ combining multiple objects together. */
 
 //------------------------------Object de-structure-------------------------------------------
 
-const course = {
-    coursename: "Javascript cs",
-    price: 999,
-    courseInstuctor: "Hitesh"
-}
+// const course = {
+//     coursename: "Javascript cs",
+//     price: 999,
+//     courseInstuctor: "Hitesh"
+// }
 
-console.log(course.courseInstuctor); //Usually we access or use values using . or []
+// console.log(course.courseInstuctor); //Usually we access or use values using . or []
 
-//In order to make code cleaner
-const {courseInstuctor:instructor} = course
+// //In order to make code cleaner
+// const {courseInstuctor:instructor} = course
 
-// console.log(courseInstuctor);
-console.log(instructor);
+// // console.log(courseInstuctor);
+// console.log(instructor);
 
 /* Object destructuring in JavaScript is a way to extract multiple properties from an object and assign them to variables in a more concise and readable manner. It allows you to unpack values from objects and store them in variables with the same name as the object's properties.
 
@@ -174,5 +174,115 @@ Syntax: The basic syntax involves using curly braces {} on the left side of the 
 //     "coursename" : "js",   //JSON 
 //     "price" : "free"
 // }
+
+//-------------------------------Own research------------------------------------
+// Traditionally, a constructor is written using a function (with an uppercase first letter by convention):
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// // To create an object using the constructor:
+// const vanesha = new Person("Vanesha", 22);
+// console.log(vanesha.name); // "Vanesha"
+
+//  The new keyword creates a new object, sets this to point to it, and returns it.
+
+
+// 🔁 What Happens Internally with new Person("Vanesha", 22)?
+// A new empty object is created: {}
+// this inside the Person constructor points to that object
+// Properties are assigned (this.name = "Vanesha")
+// The object is returned
+
+// ✅ Constructor with class (modern syntax)
+// ES6 introduced the class keyword, which is just syntactic sugar over constructor functions:
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// const v = new Person("Vanesha", 22);
+// console.log(v.name); // "Vanesha"
+
+
+// why is dot notation used and square brackets?when to use?
+
+
+// Great question! Understanding dot notation vs square bracket notation in JavaScript is essential when working with objects. Here's a clear breakdown:
+
+// 🟢 Dot Notation (obj.key)
+// Use dot notation when:
+
+// You know the exact name of the property (a valid identifier).
+
+// The property name follows normal variable naming rules: no spaces, starts with a letter, no special characters, etc.
+
+// ✅ Example:
+
+// let user = {
+//   name: "Alice",
+//   age: 25
+// };
+
+// console.log(user.name); // "Alice"
+// console.log(user.age);  // 25
+// 🟡 Bracket Notation (obj[key])
+// Use bracket notation when:
+
+// The property name is stored in a variable.
+
+// The property name is dynamic (computed at runtime).
+
+// The property name has special characters, spaces, or starts with a number.
+
+// You want to loop through properties or use non-standard keys.
+
+// ✅ Example 1: Property in a variable
+
+// let key = "name";
+// console.log(user[key]); // "Alice"
+// ✅ Example 2: Special characters or spaces
+
+// let product = {
+//   "product-name": "Laptop",
+//   "1stReview": "Great!"
+// };
+
+// console.log(product["product-name"]); // "Laptop"
+// console.log(product["1stReview"]);    // "Great!"
+// ❌ Dot Notation Limitations:
+// These won't work:
+
+// console.log(product.product-name); // NaN or error (interprets `product` minus `name`)
+// console.log(product.1stReview);    // Syntax error
+// 🔁 In Loops: Always Use Brackets
+
+// for (let key in user) {
+//   console.log(user[key]); // Works
+//   // console.log(user.key); // ❌ Won't work: tries to access 'user.key', not user["name"/"age"]
+// }
+// 📌 Summary
+// Situation	Use	Example
+// Known, valid property name	Dot	obj.name
+// Property name in a variable	Brackets	obj[key]
+// Property name has special chars	Brackets	obj["product-name"]
+// Inside a loop	Brackets	obj[key]
+// Need dynamic access	Brackets	obj[someVar]
+
+const Animal = {
+  type: "invertebrates",
+  displayType() {
+    console.log(this.type)
+  },
+};
+
+const animal = Object.create(Animal);
+console.log(animal.displayType());
+  
+const fishes = Object.create(Animal)
+fishes.type = "fishes"
+fishes.displayType()
 
 
