@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript World</h1>
+    <button id="start" style="border-radius: 10px;">Start</button>
+    <button id="stop" style="border-radius: 10px;">Stop</button>
+    
+
+    <script>
+        //setInterval(function(){
+       //     console.log('Vanesha')
+        //},1000)
+
+        //const sayDate = function(){
+        //console.log('Vanesha', Date.now())
+        //}
+
+        //setInterval(sayDate,1000)
+
+        //const sayDate = function(str){
+        //console.log(str, Date.now())
+        //}
+
+        //const intervalId = setInterval(sayDate,1000,"Vanesha")
+
+        //clearInterval(intervalId)
+        const nameRecall = function (){
+            console.log("Vanesha")
+        }
+        let intervalId;
+        document.getElementById('start').addEventListener('click',function(){
+            intervalId = setInterval(nameRecall, 1000)
+        })
+
+        document.getElementById('stop').addEventListener('click',function(){
+            clearInterval(intervalId)
+        })
+        
+
+        
+
+        //clearInterval(intervalId)
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button id="stop">Stop</button>
+    <script>
+        const sayName = function() {
+            console.log("Vanesha")
+        }
+        const changeHeader = function(){
+            document.querySelector('h1').innerHTML = "My name is Vanesha!"
+    }
+        //setTimeout(changeHeader, 2000)
+        const change = setTimeout(changeHeader, 2000)
+    //clearTimeout(change) //To stop setTimeout: we must give which setTimeout we want to stop(parameter)
+        //setTimeout(sayName, 2000)
+        //setTimeout(function() {
+         //   console.log("Vanesha")
+       // }, 2000)
+
+        document.querySelector('#stop').addEventListener('click', function(){
+            clearTimeout(change) //To stop setTimeout we use it on button 
+            console.log('STOPPED')
+        })
+    </script>
+</body>
+</html>
